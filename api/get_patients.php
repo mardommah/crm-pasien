@@ -15,7 +15,7 @@ try {
     $offset = ($page - 1) * $limit;
     
     // Query dasar
-    $query = "SELECT p.no_rkm_medis as id, p.nm_pasien as nama, p.tgl_lahir as tanggal_lahir, p.alamat, COALESCE(k.nm_kab, p.kd_kab) as kota, p.no_tlp FROM pasien p LEFT JOIN kabupaten k ON p.kd_kab = k.kd_kab";
+    $query = "SELECT p.no_rkm_medis as id, p.nm_pasien as nama, p.tgl_lahir as tanggal_lahir, TIMESTAMPDIFF(YEAR, p.tgl_lahir, CURDATE()) AS umur, p.alamat, COALESCE(k.nm_kab, p.kd_kab) as kota, p.no_tlp FROM pasien p LEFT JOIN kabupaten k ON p.kd_kab = k.kd_kab";
     $countQuery = "SELECT COUNT(*) FROM pasien p";
     $where = ["p.no_rkm_medis != 'no_rkm_medis'"];
     $params = [];

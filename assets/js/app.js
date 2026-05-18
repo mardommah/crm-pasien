@@ -252,7 +252,7 @@ async function loadPatients() {
     // Tampilkan loading
     tableBody.innerHTML = `
         <tr>
-            <td colspan="5" class="px-6 py-12 text-center text-sm text-slate-500">
+            <td colspan="7" class="px-6 py-12 text-center text-sm text-slate-500">
                 <div class="flex flex-col items-center justify-center">
                     <i data-lucide="loader-2" class="w-8 h-8 text-primary-500 animate-spin mb-2"></i>
                     Memuat data...
@@ -305,6 +305,7 @@ async function loadPatients() {
                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">${p.id || '-'}</td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-700 font-semibold">${escapeHTML(p.nama)}</td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-500">${formatDate(p.tanggal_lahir)}</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600 font-medium">${p.umur !== null ? p.umur + ' Th' : '-'}</td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-500">${escapeHTML(p.alamat)}</td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-500">
                             <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
@@ -662,7 +663,8 @@ function openWaPreviewModal(patient) {
         .replace(/{no_rkm_medis}/g, patient.id || '')
         .replace(/{tanggal_lahir}/g, formatDate(patient.tanggal_lahir) || '')
         .replace(/{kota}/g, patient.kota || '')
-        .replace(/{alamat}/g, patient.alamat || '');
+        .replace(/{alamat}/g, patient.alamat || '')
+        .replace(/{umur}/g, patient.umur !== null && patient.umur !== undefined ? patient.umur + ' Tahun' : '');
         
     document.getElementById('wa-preview-message').value = compiledMessage;
 }

@@ -35,6 +35,9 @@
                 <button type="button" onclick="insertWaTag('{alamat}')" class="px-2.5 py-1 text-xs font-semibold rounded-lg bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 transition-all flex items-center gap-1 shadow-sm">
                     <span class="w-1.5 h-1.5 rounded-full bg-red-500"></span> {alamat}
                 </button>
+                <button type="button" onclick="insertWaTag('{umur}')" class="px-2.5 py-1 text-xs font-semibold rounded-lg bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 transition-all flex items-center gap-1 shadow-sm">
+                    <span class="w-1.5 h-1.5 rounded-full bg-pink-500"></span> {umur}
+                </button>
             </div>
             
             <!-- Input Textarea -->

@@ -10,7 +10,7 @@ try {
     $year = isset($_GET['year']) && $_GET['year'] !== '' ? (int)$_GET['year'] : null;
 
     // Query dasar
-    $query = "SELECT p.no_rkm_medis as id, p.nm_pasien as nama, p.tgl_lahir as tanggal_lahir, p.alamat, COALESCE(k.nm_kab, p.kd_kab) as kota, p.no_tlp FROM pasien p LEFT JOIN kabupaten k ON p.kd_kab = k.kd_kab";
+    $query = "SELECT p.no_rkm_medis as id, p.nm_pasien as nama, p.tgl_lahir as tanggal_lahir, TIMESTAMPDIFF(YEAR, p.tgl_lahir, CURDATE()) AS umur, p.alamat, COALESCE(k.nm_kab, p.kd_kab) as kota, p.no_tlp FROM pasien p LEFT JOIN kabupaten k ON p.kd_kab = k.kd_kab";
     $where = ["p.no_rkm_medis != 'no_rkm_medis'"];
     $params = [];
 
@@ -60,7 +60,7 @@ try {
     fwrite($output, "\xEF\xBB\xBF");
     
     // Tulis header kolom
-    fputcsv($output, ['No. Rekam Medis', 'Nama Pasien', 'Tanggal Lahir', 'No. WhatsApp/HP', 'Alamat', 'Kota']);
+    fputcsv($output, ['No. Rekam Medis', 'Nama Pasien', 'Tanggal Lahir', 'Umur', 'No. WhatsApp/HP', 'Alamat', 'Kota']);
     
     // Tulis data baris demi baris
     foreach ($patients as $p) {
@@ -68,6 +68,7 @@ try {
             $p['id'],
             $p['nama'],
             $p['tanggal_lahir'],
+            $p['umur'] !== null ? $p['umur'] . ' Tahun' : '-',
             $p['no_tlp'],
             $p['alamat'],
             $p['kota']

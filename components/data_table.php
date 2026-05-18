@@ -73,6 +73,7 @@
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">No. RM</th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Nama Pasien</th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Tanggal Lahir</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Umur</th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Alamat</th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Kota</th>
                             <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-slate-500 uppercase tracking-wider">Aksi</th>
@@ -81,7 +82,7 @@
                     <tbody id="table-body" class="bg-white divide-y divide-slate-200">
                         <!-- Data will be loaded here via JS -->
                         <tr>
-                            <td colspan="6" class="px-6 py-12 text-center text-sm text-slate-500">
+                            <td colspan="7" class="px-6 py-12 text-center text-sm text-slate-500">
                                 <div class="flex flex-col items-center justify-center">
                                     <i data-lucide="loader-2" class="w-8 h-8 text-primary-500 animate-spin mb-2"></i>
                                     Memuat data...
