@@ -8,9 +8,14 @@
                             <span class="w-1.5 h-1.5 mr-1.5 rounded-full bg-emerald-500 animate-ping"></span> Ultah Hari Ini
                         </span>
                     </div>
-                    <button id="btn-reset-filter" class="hidden text-sm text-slate-500 hover:text-slate-800 transition-colors flex items-center gap-1 font-medium bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-lg px-2.5 py-1.5" title="Reset Semua Filter">
-                        <i data-lucide="rotate-ccw" class="w-4 h-4"></i> Reset Filter
-                    </button>
+                    <div class="flex items-center space-x-2">
+                        <button id="btn-reset-filter" class="hidden text-sm text-slate-500 hover:text-slate-800 transition-colors flex items-center gap-1 font-medium bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-lg px-2.5 py-1.5" title="Reset Semua Filter">
+                            <i data-lucide="rotate-ccw" class="w-4 h-4"></i> Reset Filter
+                        </button>
+                        <button id="btn-download-excel" class="text-sm text-white bg-primary-600 hover:bg-primary-700 transition-all flex items-center gap-1.5 font-semibold rounded-lg px-3 py-1.5 shadow-sm hover:shadow active:scale-95" title="Unduh Filtered Data ke Excel/CSV">
+                            <i data-lucide="file-spreadsheet" class="w-4 h-4"></i> Unduh Excel
+                        </button>
+                    </div>
                 </div>
                 
                 <!-- Filter Grid -->

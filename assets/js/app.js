@@ -112,6 +112,28 @@ document.addEventListener('DOMContentLoaded', () => {
         loadPatients();
     });
 
+    // Download Excel
+    const btnDownloadExcel = document.getElementById('btn-download-excel');
+    if (btnDownloadExcel) {
+        btnDownloadExcel.addEventListener('click', () => {
+            let url = 'api/export_excel.php?';
+            if (currentPatientToday) {
+                url += `today=${encodeURIComponent(currentPatientToday)}`;
+            }
+            if (currentPatientDay) {
+                url += `&day=${encodeURIComponent(currentPatientDay)}`;
+            }
+            if (currentPatientMonth) {
+                url += `&month=${encodeURIComponent(currentPatientMonth)}`;
+            }
+            if (currentPatientYear) {
+                url += `&year=${encodeURIComponent(currentPatientYear)}`;
+            }
+            // Unduh file dengan mengarahkan window location
+            window.location.href = url;
+        });
+    }
+
     // --- EVENT LISTENERS MODAL WHATSAPP ---
     const btnWaSettings = document.getElementById('btn-wa-settings');
     const waSettingsModal = document.getElementById('wa-settings-modal');
